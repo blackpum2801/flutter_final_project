@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:yoga_app/screens/report/calender.dart';
 import 'package:yoga_app/screens/report/report_chart.dart';
+import 'package:yoga_app/screens/report/report_ruler_picker.dart';
 
 class Report extends StatefulWidget {
   const Report({super.key});
@@ -14,6 +15,11 @@ class Report extends StatefulWidget {
 }
 
 class _ReportState extends State<Report> {
+  final DateFormat dayOfWeekFormatter = DateFormat('EEE');
+  // Lấy số ngày
+  final DateFormat dayOfMonthFormatter = DateFormat('d');
+  PersistentBottomSheetController? _bottomSheetController;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   DateTime now = DateTime.now();
   List<DateTime> getWeekDates(DateTime date) {
     final DateTime firstDayOfWeek =
@@ -22,14 +28,158 @@ class _ReportState extends State<Report> {
         7, (index) => firstDayOfWeek.add(Duration(days: index)));
   }
 
+  void _showEditBottomSheet() {
+    final List<DateTime> weekDates = getWeekDates(now);
+
+    _bottomSheetController = scaffoldKey.currentState!.showBottomSheet(
+      (BuildContext context) {
+        return Container(
+          height: 500,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Weight",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.cancel,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 50),
+              const Padding(
+                padding: EdgeInsets.only(left: 25),
+                child: Text(
+                  "Date",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Container(
+                height: 80,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Row(
+                      children: weekDates.map(
+                        (date) {
+                          bool isToday = now.day == date.day;
+                          return Container(
+                            padding: const EdgeInsets.all(6),
+                            child: Column(
+                              children: [
+                                const SizedBox(height: 10),
+                                Container(
+                                  height: 45,
+                                  width: 100,
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: isToday ? Colors.transparent : null,
+                                    borderRadius: BorderRadius.circular(100),
+                                    border: Border.all(
+                                      width: 1,
+                                      color: const Color.fromARGB(
+                                          255, 214, 154, 154),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        dayOfWeekFormatter.format(
+                                          date,
+                                        ),
+                                        style: TextStyle(
+                                            color: isToday
+                                                ? const Color.fromARGB(
+                                                    255, 56, 157, 228)
+                                                : Colors.black,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 17),
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Text(
+                                        dayOfMonthFormatter.format(date),
+                                        style: TextStyle(
+                                            color: isToday
+                                                ? const Color.fromARGB(
+                                                    255, 56, 157, 228)
+                                                : Colors.black,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 17),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 25),
+                child: Text(
+                  "Weight",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 250,
+                child: ReportRulerPicker(
+                  title: "Weight",
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+
+    // Khi BottomSheet đóng, hãy đặt _bottomSheetController về null
+    _bottomSheetController!.closed.whenComplete(() {
+      _bottomSheetController = null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // Lấy viết tắt ngày trong tuần
-    final DateFormat dayOfWeekFormatter = DateFormat('EEE');
-    // Lấy số ngày
-    final DateFormat dayOfMonthFormatter = DateFormat('d');
     final List<DateTime> weekDates = getWeekDates(now);
+
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: const Color.fromARGB(71, 219, 211, 211),
       appBar: AppBar(
         title: const Text(
@@ -285,76 +435,33 @@ class _ReportState extends State<Report> {
                             ],
                           ),
                           InkWell(
-                            child: Container(
-                              height: 30,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 147, 179, 198),
-                                borderRadius: BorderRadius.circular(10),
+                              child: Container(
+                                height: 30,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 147, 179, 198),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/images/pencil.svg",
+                                      height: 14,
+                                      width: 14,
+                                    ),
+                                    const SizedBox(width: 5),
+                                    const Text(
+                                      "Edit",
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 12),
+                                    )
+                                  ],
+                                ),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/images/pencil.svg",
-                                    height: 14,
-                                    width: 14,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  const Text(
-                                    "Edit",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 12),
-                                  )
-                                ],
-                              ),
-                            ),
-                            onTap: () {
-                              showBottomSheet(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                      height: 500,
-                                      decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.horizontal(
-                                          left: Radius.circular(100),
-                                          right: Radius.circular(100),
-                                        ),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              const Text(
-                                                "Weight",
-                                                style: TextStyle(
-                                                    fontSize: 25,
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              IconButton(
-                                                  onPressed: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.cancel,
-                                                    color: Colors.grey,
-                                                  ))
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  });
-                            },
-                          )
+                              onTap: _showEditBottomSheet)
                         ],
                       ),
                     ),

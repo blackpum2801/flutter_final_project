@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:yoga_app/screens/report/bmi.dart';
 import 'package:yoga_app/screens/report/calender.dart';
 import 'package:yoga_app/screens/report/report_chart.dart';
 import 'package:yoga_app/screens/report/report_ruler_picker.dart';
@@ -18,8 +19,6 @@ class _ReportState extends State<Report> {
   final DateFormat dayOfWeekFormatter = DateFormat('EEE');
   // Lấy số ngày
   final DateFormat dayOfMonthFormatter = DateFormat('d');
-  PersistentBottomSheetController? _bottomSheetController;
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   DateTime now = DateTime.now();
   List<DateTime> getWeekDates(DateTime date) {
     final DateTime firstDayOfWeek =
@@ -28,13 +27,16 @@ class _ReportState extends State<Report> {
         7, (index) => firstDayOfWeek.add(Duration(days: index)));
   }
 
-  void _showEditBottomSheet() {
+  // Show bottom Shet
+  void _showEditModalBottomSheet() {
     final List<DateTime> weekDates = getWeekDates(now);
 
-    _bottomSheetController = scaffoldKey.currentState!.showBottomSheet(
-      (BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
         return Container(
-          height: 500,
+          height: 550,
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -48,13 +50,14 @@ class _ReportState extends State<Report> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Spacer(),
                   const Text(
                     "Weight",
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                     textAlign: TextAlign.center,
                   ),
+                  Spacer(),
                   IconButton(
                     onPressed: () {
                       Navigator.pop(context);
@@ -155,10 +158,27 @@ class _ReportState extends State<Report> {
                   ),
                 ),
               ),
-              SizedBox(
+              Container(
+                color: Colors.red,
                 height: 250,
                 child: ReportRulerPicker(
                   title: "Weight",
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Done",
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               )
             ],
@@ -166,11 +186,6 @@ class _ReportState extends State<Report> {
         );
       },
     );
-
-    // Khi BottomSheet đóng, hãy đặt _bottomSheetController về null
-    _bottomSheetController!.closed.whenComplete(() {
-      _bottomSheetController = null;
-    });
   }
 
   @override
@@ -179,7 +194,6 @@ class _ReportState extends State<Report> {
     final List<DateTime> weekDates = getWeekDates(now);
 
     return Scaffold(
-      key: scaffoldKey,
       backgroundColor: const Color.fromARGB(71, 219, 211, 211),
       appBar: AppBar(
         title: const Text(
@@ -410,7 +424,7 @@ class _ReportState extends State<Report> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                height: 500,
+                height: 450,
                 child: Column(
                   children: [
                     Padding(
@@ -435,33 +449,33 @@ class _ReportState extends State<Report> {
                             ],
                           ),
                           InkWell(
-                              child: Container(
-                                height: 30,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 147, 179, 198),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(
-                                      "assets/images/pencil.svg",
-                                      height: 14,
-                                      width: 14,
-                                    ),
-                                    const SizedBox(width: 5),
-                                    const Text(
-                                      "Edit",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 12),
-                                    )
-                                  ],
-                                ),
+                            onTap: _showEditModalBottomSheet,
+                            child: Container(
+                              height: 30,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 147, 179, 198),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              onTap: _showEditBottomSheet)
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(
+                                    "assets/images/pencil.svg",
+                                    height: 14,
+                                    width: 14,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text(
+                                    "Edit",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 12),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -517,6 +531,15 @@ class _ReportState extends State<Report> {
                 ),
               ),
               const SizedBox(height: 20),
+              Container(
+                height: 1000,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                child: ReportBMI(),
+              )
             ],
           ),
         ),

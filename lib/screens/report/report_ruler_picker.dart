@@ -19,7 +19,7 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
   List<RulerRange> ranges = const [
     RulerRange(begin: 0, end: 10, scale: 0.1),
     RulerRange(begin: 10, end: 100, scale: 1),
-    RulerRange(begin: 100, end: 300, scale: 10),
+    RulerRange(begin: 100, end: 500, scale: 10),
   ];
 
   @override
@@ -34,11 +34,11 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
         _rulerPickerController?.value = value;
       },
       child: Container(
-          padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+          padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
           color: Colors.blue,
           child: Text(
             value.toString(),
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white),
           )),
     );
   }
@@ -67,7 +67,7 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +86,6 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
                 )
               ],
             ),
-            const SizedBox(height: 20),
             RulerPicker(
               controller: _rulerPickerController!,
               onBuildRulerScaleText: (index, value) {
@@ -107,8 +106,8 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
                 });
               },
               width: MediaQuery.of(context).size.width,
-              height: 150,
-              rulerMarginTop: 10,
+              height: 80,
+              rulerMarginTop: 8,
             ),
           ],
         ),

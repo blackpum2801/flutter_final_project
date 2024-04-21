@@ -7,6 +7,7 @@ import 'package:yoga_app/screens/report/bmi.dart';
 import 'package:yoga_app/screens/report/calender.dart';
 import 'package:yoga_app/screens/report/report_chart.dart';
 import 'package:yoga_app/screens/report/report_ruler_picker.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Report extends StatefulWidget {
   const Report({super.key});
@@ -162,7 +163,7 @@ class _ReportState extends State<Report> {
                 color: Colors.red,
                 height: 250,
                 child: ReportRulerPicker(
-                  title: "Weight",
+                  text1: "kg",
                 ),
               ),
               Container(
@@ -243,7 +244,7 @@ class _ReportState extends State<Report> {
                         Column(
                           children: [
                             SvgPicture.asset(
-                              "assets/images/meditationIcon.svg",
+                              "assets/icons/meditationIcon.svg",
                               width: 30,
                               height: 30,
                               fit: BoxFit.cover,
@@ -267,7 +268,7 @@ class _ReportState extends State<Report> {
                         Column(
                           children: [
                             SvgPicture.asset(
-                              "assets/images/fireIcon.svg",
+                              "assets/icons/fireIcon.svg",
                               width: 30,
                               height: 30,
                               fit: BoxFit.cover,
@@ -291,7 +292,7 @@ class _ReportState extends State<Report> {
                         Column(
                           children: [
                             SvgPicture.asset(
-                              "assets/images/clockIcon.svg",
+                              "assets/icons/clockIcon.svg",
                               width: 30,
                               height: 30,
                               fit: BoxFit.cover,
@@ -462,7 +463,7 @@ class _ReportState extends State<Report> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SvgPicture.asset(
-                                    "assets/images/pencil.svg",
+                                    "assets/icons/pencil.svg",
                                     height: 14,
                                     width: 14,
                                   ),
@@ -532,13 +533,46 @@ class _ReportState extends State<Report> {
               ),
               const SizedBox(height: 20),
               Container(
-                height: 1000,
+                height: 220,
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
-                child: ReportBMI(),
+                child: Column(
+                  children: [
+                    const ReportBMI(),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        const Text(
+                          "BMI range and categories come from ",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        GestureDetector(
+                          onTap: () async {
+                            final url = Uri.parse(
+                                'https://en.wikipedia.org/wiki/Body_mass_index');
+                            if (!await launchUrl(url)) {
+                              throw 'Không thể khởi chạy $url';
+                            }
+                          },
+                          child: const Text(
+                            'Wiki',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               )
             ],
           ),

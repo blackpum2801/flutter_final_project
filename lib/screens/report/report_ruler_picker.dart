@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ruler_picker/flutter_ruler_picker.dart';
 
 class ReportRulerPicker extends StatefulWidget {
-  ReportRulerPicker({Key? key, required this.title}) : super(key: key);
-  final String title;
+  final String text1;
+  ReportRulerPicker({Key? key, required this.text1}) : super(key: key);
+
   @override
   _ReportRulerPickerState createState() => _ReportRulerPickerState();
 }
@@ -18,8 +19,8 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
 
   List<RulerRange> ranges = const [
     RulerRange(begin: 0, end: 10, scale: 0.1),
-    RulerRange(begin: 10, end: 100, scale: 1),
-    RulerRange(begin: 100, end: 500, scale: 10),
+    RulerRange(begin: 10, end: 100, scale: 0.1),
+    RulerRange(begin: 100, end: 500, scale: 0.1),
   ];
 
   @override
@@ -80,9 +81,9 @@ class _ReportRulerPickerState extends State<ReportRulerPicker> {
                       fontWeight: FontWeight.bold,
                       fontSize: 40),
                 ),
-                const Text(
-                  "kg",
-                  style: TextStyle(fontSize: 18),
+                Text(
+                  widget.text1,
+                  style: const TextStyle(fontSize: 18),
                 )
               ],
             ),

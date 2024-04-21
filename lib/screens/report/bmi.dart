@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'dart:math';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:yoga_app/screens/report/report_ruler_picker.dart';
 
 class ReportBMI extends StatefulWidget {
   const ReportBMI({Key? key}) : super(key: key);
@@ -36,6 +38,78 @@ class _ReportBMIState extends State<ReportBMI> {
         status = 'Obesity class 3';
       }
     });
+  }
+
+  void showCalculateBMI() {
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (BuildContext context) {
+          return Container(
+            margin: const EdgeInsets.only(top: 20),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
+            height: 550,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Center(
+                  child: Text(
+                    "BMI",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                  ),
+                ),
+                const SizedBox(height: 40),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    "Height",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Expanded(
+                  child: ReportRulerPicker(
+                    text1: "cm",
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    "Weight",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Expanded(
+                  child: ReportRulerPicker(
+                    text1: "kg",
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      "Done",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          );
+        });
   }
 
   Color getStatusColor(String status) {
@@ -96,7 +170,7 @@ class _ReportBMIState extends State<ReportBMI> {
         //   height: 30,
         // ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -116,6 +190,7 @@ class _ReportBMIState extends State<ReportBMI> {
                 ],
               ),
               InkWell(
+                onTap: showCalculateBMI,
                 child: Container(
                   height: 30,
                   width: 60,
@@ -128,7 +203,7 @@ class _ReportBMIState extends State<ReportBMI> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
-                        "assets/images/pencil.svg",
+                        "assets/icons/pencil.svg",
                         height: 14,
                         width: 14,
                       ),
@@ -145,7 +220,7 @@ class _ReportBMIState extends State<ReportBMI> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Column(
             children: [
               Row(
@@ -157,9 +232,6 @@ class _ReportBMIState extends State<ReportBMI> {
                       fontSize: 30,
                       color: getStatusColor(status),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,6 +245,9 @@ class _ReportBMIState extends State<ReportBMI> {
                     ],
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Row(
                 children: [

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:yoga_app/screens/training/training_exercise.dart';
+import 'package:yoga_app/screens/training/training_schedule.dart';
 
 class Training extends StatefulWidget {
   const Training({Key? key}) : super(key: key);
@@ -102,7 +102,7 @@ class _TrainingState extends State<Training> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                          builder: (context) => const TrainingExercise()),
+                          builder: (context) => const TrainingSchedule()),
                     );
                   },
                   child: Stack(
@@ -129,21 +129,21 @@ class _TrainingState extends State<Training> {
                             Text(
                               'Beginner',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               'Plan',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               '30 days left',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -167,7 +167,7 @@ class _TrainingState extends State<Training> {
                               children: [
                                 Icon(
                                   Icons.play_arrow,
-                                  color: Color.fromARGB(255, 179, 66, 72),
+                                  color: Colors.teal,
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -175,8 +175,7 @@ class _TrainingState extends State<Training> {
                                 Text(
                                   'Day 1',
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 179, 66, 72)),
+                                      fontSize: 16, color: Colors.teal),
                                 ),
                               ],
                             ),
@@ -210,21 +209,21 @@ class _TrainingState extends State<Training> {
                             Text(
                               'Intermediate',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               'Plan',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               '30 days left',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -249,7 +248,7 @@ class _TrainingState extends State<Training> {
                               children: [
                                 Icon(
                                   Icons.play_arrow,
-                                  color: Color.fromARGB(255, 179, 66, 72),
+                                  color: Colors.teal,
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -257,8 +256,7 @@ class _TrainingState extends State<Training> {
                                 Text(
                                   'Day 1',
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 179, 66, 72)),
+                                      fontSize: 16, color: Colors.teal),
                                 ),
                               ],
                             ),
@@ -290,21 +288,21 @@ class _TrainingState extends State<Training> {
                             Text(
                               'Advanced',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               'Plan',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
                               '30 days left',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 213, 1, 84),
+                                  color: Colors.teal,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -329,7 +327,7 @@ class _TrainingState extends State<Training> {
                               children: [
                                 Icon(
                                   Icons.play_arrow,
-                                  color: Color.fromARGB(255, 179, 66, 72),
+                                  color: Colors.teal,
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -337,8 +335,7 @@ class _TrainingState extends State<Training> {
                                 Text(
                                   'Day 1',
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 179, 66, 72)),
+                                      fontSize: 16, color: Colors.teal),
                                 ),
                               ],
                             ),

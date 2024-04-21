@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:yoga_app/data/yogaData.dart';
+import 'package:yoga_app/models/day.dart';
+import 'package:yoga_app/models/exerciseBegginer.dart';
+import 'package:yoga_app/screens/me/me_custom1.dart';
+import 'package:yoga_app/screens/training/training_exercise_detail.dart';
 
 class TrainingExercise extends StatefulWidget {
-  const TrainingExercise({Key? key}) : super(key: key);
+  final int dayNumber;
+  final int exerciseIndex; // Thêm biến mới để truyền chỉ số của bài tập
+
+  const TrainingExercise(
+      {Key? key, required this.dayNumber, required this.exerciseIndex})
+      : super(key: key);
+
   @override
   State<TrainingExercise> createState() => _TrainingExerciseState();
 }
 
 class _TrainingExerciseState extends State<TrainingExercise> {
-  int daysCompleted = 0;
-  int totalTasks = 9;
-  int completedTasks = 0;
-  final int totalDays = 30;
-  void updateProgress() {
-    if (daysCompleted < totalDays) {
-      setState(() {
-        daysCompleted++;
-      });
-    }
-  }
-
-  void updateProgressCirCle(int index) {
-    setState(() {
-      completedTasks = index + 1;
-    });
-  }
+  bool isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
+    int displayDayNumber = widget.dayNumber;
+    // Lấy dữ liệu cho ngày hiện tại từ danh sách dummyFitnessActivities
+    Day currentDayData = dummyFitnessActivities.firstWhere(
+      (day) => day.id == 'day${widget.dayNumber}',
+      orElse: () => Day(id: 'day${widget.dayNumber}', exercises: []),
+    );
+    // Kiểm tra xem ngày hiện tại có bài tập không, nếu không thì hiển thị thông báo
+    bool hasExercises = currentDayData.exercises.isNotEmpty;
+    var current = currentDayData.exercises.length;
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
@@ -76,29 +81,6 @@ class _TrainingExerciseState extends State<TrainingExercise> {
                           ),
                         ),
                       ),
-                      Positioned(
-                        top: 125,
-                        left: 30,
-                        child: SizedBox(
-                          height: 6,
-                          width: 170,
-                          child: LinearProgressIndicator(
-                            value: daysCompleted / totalDays,
-                            backgroundColor:
-                                const Color.fromARGB(255, 173, 45, 45),
-                            valueColor:
-                                const AlwaysStoppedAnimation(Colors.blue),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 135,
-                        left: 30,
-                        child: Text(
-                          '${totalDays - daysCompleted} days left',
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                      ),
                     ],
                   ),
                 );
@@ -112,105 +94,220 @@ class _TrainingExerciseState extends State<TrainingExercise> {
               onPressed: () => Navigator.of(context).pop(),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
-              child: Column(
-                children: [
-                  Row(
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 2, color: Colors.green),
-                        ),
-                        child: const Icon(
-                          Icons.flag,
-                          color: Colors.blue,
-                        ),
+                      Text(
+                        "Day $displayDayNumber",
+                        style: const TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(width: 8),
                       const Text(
-                        "Week 1",
+                        "9 mins ● 9 exercises",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w500),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromARGB(255, 126, 126, 126),
+                        ),
                       ),
-                      const Spacer(),
-                      const Text(
-                        "0/7",
-                        style: TextStyle(fontSize: 17),
-                      )
+                      const SizedBox(height: 30),
+                      Column(children: [
+                        Row(
+                          children: [
+                            const Text(
+                              "Instruction",
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.w600),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    isExpanded = !isExpanded;
+                                  });
+                                },
+                                icon: Icon(
+                                  isExpanded
+                                      ? Icons.arrow_drop_up_rounded
+                                      : Icons.arrow_drop_down_rounded,
+                                  size: 30,
+                                ))
+                          ],
+                        ),
+                      ]),
+                      AnimatedCrossFade(
+                        firstChild: const Text(
+                          "The daily exercise of this plan lasts 7- 8 minutes, especially for beginners to practice yoga from 0...",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 138, 138, 138),
+                              fontSize: 15),
+                        ),
+                        secondChild: const Column(
+                          children: [
+                            Text(
+                              "The daily exercise of this plan lasts 7- 8 minutes, especially for beginners to practice yoga from 0.",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 138, 138, 138),
+                                  fontSize: 15),
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              "In this plan, your muscles will be activated through the basic yoga poses, and the fat-burning process will kick in. Stick to it to boost your metabolism, lose weight and get in shape.",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 138, 138, 138),
+                                  fontSize: 15),
+                            ),
+                          ],
+                        ),
+                        crossFadeState: isExpanded
+                            ? CrossFadeState.showSecond
+                            : CrossFadeState.showFirst,
+                        duration: const Duration(milliseconds: 200),
+                      ),
+                      const SizedBox(height: 20),
+                      const Custom01(
+                        text: "Coach voice",
+                        text1: "Device TTS Engine",
+                        svgImg: "assets/icons/voice.svg",
+                        useSwitch: false,
+                        iconData: Icons.keyboard_arrow_right_outlined,
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          const Text(
+                            "Exercises",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w600),
+                          ),
+                          const Spacer(),
+                          InkWell(
+                            onTap: () {},
+                            child: SvgPicture.asset(
+                              "assets/icons/coffee.svg",
+                              width: 30,
+                              height: 30,
+                              color: const Color.fromARGB(255, 126, 126, 126),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          InkWell(
+                            onTap: () {},
+                            child: SvgPicture.asset(
+                              "assets/icons/pencil_nobg.svg",
+                              width: 30,
+                              height: 30,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return Column(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
-                      child: InkWell(
-                        onTap: () {},
-                        borderRadius: BorderRadius.circular(40),
-                        child: Ink(
-                          width: double.infinity,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 229, 229, 229),
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          padding: const EdgeInsets.only(left: 30, right: 30),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Day ${index + 1}",
-                                    style: const TextStyle(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  const Spacer(),
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      CircularProgressIndicator(
-                                        value: daysCompleted / totalDays,
-                                        backgroundColor: const Color.fromARGB(
-                                            255, 210, 210, 210),
-                                        valueColor:
-                                            const AlwaysStoppedAnimation<Color>(
-                                                Colors.blue),
-                                      ),
-                                      Text(
-                                        "${(daysCompleted / totalDays * 100).toStringAsFixed(0)}%", // Hiển thị phần trăm
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
+                // Nếu ngày đó không có bài tập, hiển thị thông báo
+                if (!hasExercises) {
+                  return const Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: Text(
+                        "Không có bài tập",
+                        style: TextStyle(fontSize: 18),
                       ),
                     ),
-                  ],
-                );
+                  );
+                } else {
+                  // Xây dựng UI cho từng bài tập có trong currentDayData
+                  Exercises exercise = currentDayData.exercises[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 15),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TrainingDetail(
+                                    currentDay:
+                                        currentDayData, // Truyền currentDayData
+                                    exerciseIndex: index,
+                                  )),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              exercise.imgGif,
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(width: 25),
+                          SizedBox(
+                            width: 220,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  exercise.name,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600),
+                                  softWrap: true,
+                                ),
+                                const SizedBox(height: 6),
+                                Text(
+                                  "00:${exercise.duration.toString().padLeft(2, '0')}",
+                                  style: const TextStyle(
+                                      fontSize: 16, color: Colors.grey),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
               },
-              childCount: 4,
+              childCount: hasExercises ? current : 1,
             ),
           ),
+          SliverToBoxAdapter(
+              child: hasExercises
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 148, 179, 199),
+                        ),
+                        child: const Text(
+                          'Start',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink())
         ],
       ),
     );

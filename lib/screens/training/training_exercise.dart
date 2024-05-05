@@ -288,34 +288,35 @@ class _TrainingExerciseState extends State<TrainingExercise> {
             ),
           ),
           SliverToBoxAdapter(
-              child: hasExercises
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TrainingStart(
-                                  dayNumber: widget.dayNumber,
-                                  exerciseIndex: widget.exerciseIndex,
-                                ),
-                              ));
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal,
-                        ),
-                        child: const Text(
-                          'Start',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500),
-                        ),
+            child: hasExercises
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TrainingStart(
+                                dayNumber: widget.dayNumber,
+                                exerciseIndex: widget.exerciseIndex,
+                              ),
+                            ));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.teal,
                       ),
-                    )
-                  : const SizedBox.shrink())
+                      child: const Text(
+                        'Start',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  )
+                : const SizedBox.shrink(),
+          )
         ],
       ),
     );

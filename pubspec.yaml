@@ -79,6 +79,7 @@ flutter:
     - assets/images/training/beginner/day6/
     - assets/images/training/beginner/day7/
     - assets/images/training/sunrise/
+    - assets/images/training/bedtime/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:yoga_app/models/day.dart';
 import 'package:yoga_app/models/exerciseBegginer.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -50,7 +47,7 @@ class _TrainingDetailCustomState extends State<TrainingDetailCustom>
       // _controller?.dispose();
       _controller = YoutubePlayerController(
         initialVideoId: videoId,
-        flags: YoutubePlayerFlags(
+        flags: const YoutubePlayerFlags(
           autoPlay: false,
           mute: false,
         ),
@@ -185,7 +182,7 @@ class _TrainingDetailCustomState extends State<TrainingDetailCustom>
                                   showVideoProgressIndicator: true,
                                   onReady: () {},
                                 )
-                              : CircularProgressIndicator(),
+                              : const CircularProgressIndicator(),
                           const SizedBox(height: 20),
                           Text(
                             exercise.name,

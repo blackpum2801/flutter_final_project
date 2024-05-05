@@ -666,7 +666,7 @@ var bedtimeSleep = [
       desc:
           "Tilt your head towards your left shoulder, and hold it for a few seconds. Then tilt your head towards your right shoulder, and also hold it for a few seconds. Repeat the exercise.",
       calo: 50,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime1.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime2",
@@ -675,7 +675,7 @@ var bedtimeSleep = [
       desc:
           "Gently nod your head forward, bringing your chin towards your chest, then slowly lift your head back up. Repeat this up and down motion smoothly.",
       calo: 30,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime2.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime3",
@@ -684,7 +684,7 @@ var bedtimeSleep = [
       desc:
           "Lift your shoulders towards your ears, hold for a few seconds, and then roll them back as you bring them down. Repeat this movement to release tension.",
       calo: 45,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime3.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime4",
@@ -693,7 +693,7 @@ var bedtimeSleep = [
       desc:
           "While sitting, reach your left hand over your head towards the right side while bending your upper body to the right. Return to center and repeat.",
       calo: 30,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime4.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime5",
@@ -702,7 +702,7 @@ var bedtimeSleep = [
       desc:
           "While seated, extend your right hand overhead, reaching to the left side as you bend your upper body to the left. Come back to center and continue the movement.",
       calo: 30,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime5.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime7",
@@ -711,7 +711,7 @@ var bedtimeSleep = [
       desc:
           "Sit with the bottoms of your feet together and knees dropped out to the sides. Hold your feet with your hands and lean forward slightly to deepen the stretch.",
       calo: 30,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime6.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime8",
@@ -720,7 +720,7 @@ var bedtimeSleep = [
       desc:
           "Lying on your back, pull your left knee to your chest while keeping the right leg straight. Hold the stretch then switch sides.",
       calo: 35,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime7.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime9",
@@ -729,7 +729,7 @@ var bedtimeSleep = [
       desc:
           "Lie on your back and extend your arms to form a T shape. Keep your shoulders on the floor as you gently roll your bent knees to the left side. Look to your right and hold.",
       calo: 25,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime8.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime10",
@@ -738,7 +738,7 @@ var bedtimeSleep = [
       desc:
           "While lying on your back, extend your arms out to the sides. Slowly drop your bent knees to the right, keeping your shoulders flat on the floor. Turn your head to the left and hold the position.",
       calo: 25,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime9.gif",
       youtubeVideoId: "zaongQlYTto"),
   Exercises(
       id: "bedtime11",
@@ -747,6 +747,6 @@ var bedtimeSleep = [
       desc:
           "Lay flat on your back with your legs straight. Gently draw your right knee to your chest, grabbing it with both hands. Keep your left leg straight and on the ground. Hold the stretch, then repeat on the other side.",
       calo: 35,
-      imgGif: "assets/images/training/sunrise/bedtime1.gif",
+      imgGif: "assets/images/training/bedtime/bedtime10.gif",
       youtubeVideoId: "zaongQlYTto"),
 ];

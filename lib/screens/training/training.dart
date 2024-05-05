@@ -493,6 +493,8 @@ class _TrainingState extends State<Training> {
                               MaterialPageRoute(
                                 builder: (context) => TrainingExerciseCustom(
                                   text: "Sunrise Yoga",
+                                  text1:
+                                      "Wake up with energy,make your body primed for the day.",
                                   exercises: sunriseYoga,
                                   onTap: (index) {
                                     Navigator.push(
@@ -545,7 +547,32 @@ class _TrainingState extends State<Training> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TrainingExerciseCustom(
+                                  text: "Bedtime stretch for SLEEP",
+                                  text1:
+                                      "Relax yourself and get a high-quality sleep.",
+                                  exercises: bedtimeSleep,
+                                  onTap: (index) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            TrainingDetailCustom(
+                                          exercises: bedtimeSleep,
+                                          initialExerciseIndex: index,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  img: 'assets/images/daily_scenery1.jpg',
+                                ),
+                              ),
+                            );
+                          },
                           child: Stack(
                             children: [
                               Image.asset(

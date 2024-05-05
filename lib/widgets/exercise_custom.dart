@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:yoga_app/models/exerciseBegginer.dart';
 import 'package:yoga_app/screens/me/me_custom1.dart';
+import 'package:yoga_app/widgets/exercise_start_custom.dart';
 
 class TrainingExerciseCustom extends StatefulWidget {
   final String text;
+  final String text1;
 
   final List<Exercises> exercises;
   final Function(int) onTap;
@@ -11,6 +13,7 @@ class TrainingExerciseCustom extends StatefulWidget {
   const TrainingExerciseCustom(
       {super.key,
       required this.text,
+      required this.text1,
       required this.exercises,
       required this.onTap,
       required this.img});
@@ -64,6 +67,7 @@ class _TrainingExerciseCustomState extends State<TrainingExerciseCustom> {
               icon: const Icon(
                 Icons.arrow_back,
                 size: 30,
+                color: Colors.white,
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -83,11 +87,11 @@ class _TrainingExerciseCustomState extends State<TrainingExerciseCustom> {
                             fontSize: 25, fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(height: 30),
-                      const Column(children: [
+                      Column(children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "5 mins ● Beginner",
                               style: TextStyle(
                                 fontSize: 17,
@@ -96,8 +100,8 @@ class _TrainingExerciseCustomState extends State<TrainingExerciseCustom> {
                               ),
                             ),
                             Text(
-                              "Wake up with energy,make your body primed for the day.",
-                              style: TextStyle(
+                              widget.text1,
+                              style: const TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w400),
                             ),
                           ],
@@ -169,6 +173,32 @@ class _TrainingExerciseCustomState extends State<TrainingExerciseCustom> {
               );
             }, childCount: widget.exercises.length),
           ),
+          SliverToBoxAdapter(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TrainingStartCustom(
+                        exercises: widget.exercises,
+                        initialExerciseIndex: 0,
+                      ),
+                    ));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+              ),
+              child: const Text(
+                'Start',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ))
         ],
       ),
     );

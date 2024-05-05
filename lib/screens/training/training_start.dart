@@ -235,7 +235,7 @@ class _TrainingStartState extends State<TrainingStart>
     _timer?.cancel();
 
     if (!_isControllerDisposed) {
-      controller.dispose();
+      // controller.dispose();
       _isControllerDisposed = true;
     }
 

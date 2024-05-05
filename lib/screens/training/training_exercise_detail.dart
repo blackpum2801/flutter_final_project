@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:yoga_app/data/yogaData.dart';
 import 'package:yoga_app/models/day.dart';
 import 'package:yoga_app/models/exerciseBegginer.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TrainingDetail extends StatefulWidget {
   final Day currentDay;
@@ -23,18 +23,55 @@ class _TrainingDetailState extends State<TrainingDetail>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late int currentPageIndex;
-
+  YoutubePlayerController? _controller;
   @override
   void initState() {
     super.initState();
     currentPageIndex = widget.exerciseIndex;
     _tabController = TabController(length: 2, vsync: this);
+    _initializeVideoController();
+
+    _tabController.addListener(
+      () {
+        if (_tabController.indexIsChanging && mounted) {
+          setState(
+            () {
+              _initializeVideoController();
+            },
+          );
+        }
+      },
+    );
+  }
+
+  void _initializeVideoController() {
+    String videoId =
+        widget.currentDay.exercises[currentPageIndex].youtubeVideoId;
+
+    if (_controller == null || _controller!.initialVideoId != videoId) {
+      // _controller?.dispose();
+      _controller = YoutubePlayerController(
+        initialVideoId: videoId,
+        flags: YoutubePlayerFlags(
+          autoPlay: false,
+          mute: false,
+        ),
+      )..addListener(() {
+          if (mounted) {
+            setState(() {});
+          }
+        });
+    } else {
+      _controller!.load(videoId);
+    }
   }
 
   void _previousExercise() {
     if (currentPageIndex > 0) {
       setState(() {
         currentPageIndex--;
+        _tabController.animateTo(0); // Switch to first tab
+        _initializeVideoController();
       });
     }
   }
@@ -43,14 +80,17 @@ class _TrainingDetailState extends State<TrainingDetail>
     if (currentPageIndex < widget.currentDay.exercises.length - 1) {
       setState(() {
         currentPageIndex++;
+        _tabController.animateTo(0); // Switch to first tab
+        _initializeVideoController();
       });
     }
   }
 
   @override
   void dispose() {
-    super.dispose();
     _tabController.dispose();
+    _controller!.dispose();
+    super.dispose();
   }
 
   @override
@@ -133,9 +173,55 @@ class _TrainingDetailState extends State<TrainingDetail>
                     );
                   },
                 ),
-                const Center(
-                  child: Text("Text Youtube"),
-                )
+                ListView.builder(
+                  itemCount: 1,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _controller != null
+                              ? YoutubePlayer(
+                                  controller: _controller!,
+                                  showVideoProgressIndicator: true,
+                                  onReady: () {},
+                                )
+                              : CircularProgressIndicator(),
+                          const SizedBox(height: 20),
+                          Text(
+                            exercise.name,
+                            style: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              const Text(
+                                "Duration",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w400),
+                              ),
+                              const Spacer(),
+                              Text(
+                                "00:${exercise.duration.toString().padLeft(2, '0')}",
+                                style: const TextStyle(
+                                    fontSize: 18, color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 15),
+                          Text(
+                            exercise.desc,
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 125, 125, 125),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -146,11 +232,12 @@ class _TrainingDetailState extends State<TrainingDetail>
                 Row(
                   children: [
                     IconButton(
-                      onPressed: _previousExercise,
-                      icon: const Icon(
+                      onPressed:
+                          currentPageIndex > 0 ? _previousExercise : null,
+                      icon: Icon(
                         Icons.arrow_circle_left_rounded,
                         size: 30,
-                        color: Colors.black,
+                        color: currentPageIndex > 0 ? Colors.teal : Colors.grey,
                       ),
                     ),
                     Text(
@@ -158,10 +245,17 @@ class _TrainingDetailState extends State<TrainingDetail>
                       style: const TextStyle(fontSize: 17),
                     ),
                     IconButton(
-                      onPressed: _nextExercise,
-                      icon: const Icon(
+                      onPressed: currentPageIndex <
+                              widget.currentDay.exercises.length - 1
+                          ? _nextExercise
+                          : null,
+                      icon: Icon(
                         Icons.arrow_circle_right_rounded,
                         size: 30,
+                        color: currentPageIndex <
+                                widget.currentDay.exercises.length - 1
+                            ? Colors.teal
+                            : Colors.grey,
                       ),
                     )
                   ],

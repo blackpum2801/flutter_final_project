@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:yoga_app/models/day.dart';
+import 'package:yoga_app/models/exerciseBegginer.dart';
 import 'package:yoga_app/screens/training/training_exercise.dart';
+import 'package:yoga_app/screens/training/training_start.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TrainingSchedule extends StatefulWidget {
-  const TrainingSchedule({Key? key}) : super(key: key);
+  final Day day;
+  const TrainingSchedule({Key? key, required this.day}) : super(key: key);
   @override
   State<TrainingSchedule> createState() => _TrainingScheduleState();
 }
 
 class _TrainingScheduleState extends State<TrainingSchedule> {
   int daysCompleted = 0;
-  int totalTasks = 9;
   int completedTasks = 0;
   final int totalDays = 30;
-  void updateProgress() {
-    if (daysCompleted < totalDays) {
-      setState(() {
-        daysCompleted++;
-      });
-    }
-  }
 
-  void updateProgressCirCle(int index) {
-    setState(() {
-      completedTasks = index + 1;
-    });
-  }
+  // void _saveData(int daysCompleted) async {
+  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.setInt('daysCompleted', daysCompleted);
+  // }
+
+  // void _loadData() async {
+  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     daysCompleted = prefs.getInt('daysCompleted') ?? 0;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +216,7 @@ class _TrainingScheduleState extends State<TrainingSchedule> {
                   ],
                 );
               },
-              childCount: 31,
+              childCount: 14,
             ),
           ),
         ],

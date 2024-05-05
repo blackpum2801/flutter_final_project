@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:yoga_app/data/yogaData.dart';
+
 import 'package:yoga_app/screens/training/training_schedule.dart';
+import 'package:yoga_app/widgets/exercise_custom.dart';
+import 'package:yoga_app/widgets/exercise_detail_custom.dart';
 
 class Training extends StatefulWidget {
   const Training({Key? key}) : super(key: key);
@@ -102,7 +106,9 @@ class _TrainingState extends State<Training> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                          builder: (context) => const TrainingSchedule()),
+                          builder: (context) => TrainingSchedule(
+                                day: dummyFitnessActivities[0],
+                              )),
                     );
                   },
                   child: Stack(
@@ -481,7 +487,30 @@ class _TrainingState extends State<Training> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TrainingExerciseCustom(
+                                  text: "Sunrise Yoga",
+                                  exercises: sunriseYoga,
+                                  onTap: (index) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            TrainingDetailCustom(
+                                          exercises: sunriseYoga,
+                                          initialExerciseIndex: index,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  img: 'assets/images/daily_scenery.png',
+                                ),
+                              ),
+                            );
+                          },
                           child: Stack(
                             children: [
                               ColorFiltered(

@@ -5,6 +5,7 @@ import 'package:yoga_app/models/day.dart';
 import 'package:yoga_app/models/exerciseBegginer.dart';
 import 'package:yoga_app/screens/me/me_custom1.dart';
 import 'package:yoga_app/screens/training/training_exercise_detail.dart';
+import 'package:yoga_app/screens/training/training_start.dart';
 
 class TrainingExercise extends StatefulWidget {
   final int dayNumber;
@@ -239,8 +240,7 @@ class _TrainingExerciseState extends State<TrainingExercise> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => TrainingDetail(
-                                    currentDay:
-                                        currentDayData, // Truyền currentDayData
+                                    currentDay: currentDayData,
                                     exerciseIndex: index,
                                   )),
                         );
@@ -253,7 +253,7 @@ class _TrainingExerciseState extends State<TrainingExercise> {
                               exercise.imgGif,
                               width: 100,
                               height: 100,
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fill,
                             ),
                           ),
                           const SizedBox(width: 25),
@@ -293,17 +293,25 @@ class _TrainingExerciseState extends State<TrainingExercise> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TrainingStart(
+                                  dayNumber: widget.dayNumber,
+                                  exerciseIndex: widget.exerciseIndex,
+                                ),
+                              ));
+                        },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 148, 179, 199),
+                          backgroundColor: Colors.teal,
                         ),
                         child: const Text(
                           'Start',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.w600),
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     )

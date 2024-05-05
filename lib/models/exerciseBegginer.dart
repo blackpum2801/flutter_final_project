@@ -5,11 +5,14 @@ class Exercises {
   final String desc;
   final int calo;
   final String imgGif;
-  Exercises(
-      {required this.id,
-      required this.name,
-      required this.duration,
-      required this.desc,
-      required this.calo,
-      required this.imgGif});
+  final String youtubeVideoId;
+  Exercises({
+    required this.id,
+    required this.name,
+    required this.duration,
+    required this.desc,
+    required this.calo,
+    required this.imgGif,
+    required this.youtubeVideoId,
+  });
 }

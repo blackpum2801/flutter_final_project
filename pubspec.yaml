@@ -80,10 +80,21 @@ flutter:
     - assets/images/training/beginner/day7/
     - assets/images/training/sunrise/
     - assets/images/training/bedtime/
+    - assets/images/explore/getting_started/
+    - assets/images/explore/yoga_kid/
+    - assets/images/explore/pilates_1/
+    - assets/images/explore/pilates_2/
+    - assets/images/explore/pilates_3/
+    - assets/images/explore/strong_1/
+    - assets/images/explore/strong_2/
+    - assets/images/explore/strong_3/
+    - assets/images/explore/strong_4/
+    - assets/images/explore/strong_5/
+    - assets/images/explore/relax_1/
+    - assets/images/explore/relax_2/
 
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
+  # https://flutter.dev/assets-and-images/#resolution-awarew
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 

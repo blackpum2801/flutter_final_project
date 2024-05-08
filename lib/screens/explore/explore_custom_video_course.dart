@@ -28,11 +28,14 @@ class Card04 extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             child: Stack(
               children: [
-                Image.asset(
-                  img,
-                  width: setHeight,
-                  height: setWidth,
-                  fit: BoxFit.cover,
+                Opacity(
+                  opacity: 0.9,
+                  child: Image.asset(
+                    img,
+                    width: setHeight,
+                    height: setWidth,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Positioned(
                   top: 20,
@@ -57,8 +60,8 @@ class Card04 extends StatelessWidget {
                     text1,
                     style: const TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        color: Color.fromARGB(255, 255, 17, 0),
+                        fontWeight: FontWeight.w700),
                   ),
                 ),
                 Positioned(
@@ -68,8 +71,8 @@ class Card04 extends StatelessWidget {
                     text2,
                     style: const TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        color: Color.fromARGB(255, 225, 4, 4),
+                        fontWeight: FontWeight.w700),
                   ),
                 )
               ],

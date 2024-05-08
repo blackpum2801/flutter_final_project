@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Card03 extends StatelessWidget {
   final String img;
@@ -77,15 +79,19 @@ class Card03 extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 3),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  text1,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w600),
+                SizedBox(
+                  width: 180,
+                  child: Text(
+                    text1,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w600),
+                    softWrap: true,
+                  ),
                 ),
                 Text(
                   text2,

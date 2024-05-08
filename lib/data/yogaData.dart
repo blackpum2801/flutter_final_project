@@ -750,3 +750,637 @@ var bedtimeSleep = [
       imgGif: "assets/images/training/bedtime/bedtime10.gif",
       youtubeVideoId: "zaongQlYTto"),
 ];
+var easeYogaExplore = [
+  Exercises(
+      id: "easeYogaExplore1",
+      name: "Clockwise Shoulder Rolls",
+      duration: 40,
+      desc:
+          "Stand or sit comfortably with a straight spine. Lift your shoulders up towards your ears, roll them back, down and then forward in a smooth circular motion. This gentle rotation helps to release tension in the shoulder region. Repeat for 40 seconds to loosen tight muscles and increase mobility. Keep breathing deeply throughout the exercise. Relax and enjoy the sensation of easing any stiffness away. 🧘‍♂️✨",
+      calo: 50,
+      imgGif: "assets/images/explore/getting_started/easy_yoga1.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "easeYogaExplore2",
+      name: "Counterclockwise Shoulder Rolls",
+      duration: 40,
+      desc:
+          "Start in a seated or standing position with your spine aligned. Elevate your shoulders and then roll them forward, down, back, and up in a reverse circular motion. This backward roll targets muscle tension and improves shoulder flexibility. Perform this movement for 40 seconds, focusing on deep, even breaths. End the exercise with your shoulders in a relaxed position.",
+      calo: 50,
+      imgGif: "assets/images/explore/getting_started/easy_yoga2.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "easeYogaExplore3",
+      name: "Side-to-side Neck Turns",
+      duration: 40,
+      desc:
+          "Keep your head aligned with your neck. Slowly turn your head to the right as far as is comfortable, hold for a moment, then gently turn to the left. Do this smoothly for 40 seconds to alleviate neck tension and enhance mobility. Maintain steady, calm breaths throughout the movement.",
+      calo: 50,
+      imgGif: "assets/images/explore/getting_started/easy_yoga3.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "easeYogaExplore4",
+      name: "Up & Down Nods",
+      duration: 30,
+      desc:
+          "Sit or stand upright. Nod your head slowly upwards, stretching the neck, then lower the chin towards the chest. Continue this up and down nodding for 30 seconds to relax and stretch the neck muscles. Remember to breathe freely as you move.",
+      calo: 30,
+      imgGif: "assets/images/explore/getting_started/easy_yoga4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "easeYogaExplore5",
+      name: "Seated Side Bend Left",
+      duration: 40,
+      desc:
+          "Sit on the ground with your legs crossed. Place your left hand on the ground beside you and reach your right arm over your head towards the left, bending at the waist. Feel the stretch along the right side of your body. Hold the stretch for 40 seconds before releasing. Breathe deeply and hold a gentle smile to enhance relaxation.",
+      calo: 40,
+      imgGif: "assets/images/explore/getting_started/easy_yoga5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "easeYogaExplore6",
+      name: "Seated Side Bend Right",
+      duration: 40,
+      desc:
+          "Sit with your legs comfortably crossed. Place your right hand on the floor and stretch your left arm over your head to the right side. You should feel a stretch along the left side of your body. Maintain the side bend for 40 seconds, focusing on deep breaths. Let peace fill your being as you stretch.",
+      calo: 40,
+      imgGif: "assets/images/explore/getting_started/easy_yoga6.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var yogaKid = [
+  Exercises(
+      id: "yogaKid1",
+      name: "Standing Back Stretches",
+      duration: 30,
+      desc:
+          "Stand with feet a little wider than shoulder width apart. Raise your hands overhead with palms up toward the ceiling. Use one of your hands to grab the other. Bend your body side to side.",
+      calo: 50,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid1.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid2",
+      name: "Warrior II Left",
+      duration: 45,
+      desc:
+          "Step your feet wide apart, extend your arms out to the sides, and turn your left foot out. Bend your left knee over the left ankle. Gaze over the left hand. Hold and then switch sides.",
+      calo: 60,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid2.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid3",
+      name: "Warrior II Right",
+      duration: 45,
+      desc:
+          "Same as Warrior II Left, but bend your right knee over the right ankle while turned to the right foot out. Gaze over the right hand. Hold and then switch sides.",
+      calo: 60,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid3.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid4",
+      name: "Standing Crossover Toe Touches",
+      duration: 30,
+      desc:
+          "Stand straight and lift your arms to the sides at shoulder height. Touch your left hand to your right toe by bending at the waist. Stand back up and repeat with the other side.",
+      calo: 40,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid5",
+      name: "Downward Facing Dog",
+      duration: 30,
+      desc:
+          "Start on your hands and knees. Lift your hips up and back, straightening your legs. Press your hands into the ground. Your body should form an inverted ‘V’ shape.",
+      calo: 35,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid6",
+      name: "Chair",
+      duration: 30,
+      desc:
+          "Stand with your feet together. Bend your knees and sit back as if you are sitting on a chair. Raise your arms up towards the sky. Keep your back straight.",
+      calo: 45,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid6.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid7",
+      name: "Torso Twist",
+      duration: 40,
+      desc:
+          "Sit on the floor with your legs extended. Bend your right knee over the left leg. Twist your torso to the right, placing your left elbow outside your right knee. Switch sides after holding.",
+      calo: 20,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid7.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "yogaKid8",
+      name: "Locust Pose",
+      duration: 30,
+      desc:
+          "Lie face down, hands by your side. Lift your head, chest, and legs off the ground as high as you can. Extend your arms back towards your hips. Hold this pose for the duration.",
+      calo: 30,
+      imgGif: "assets/images/explore/yoga_kid/yoga_kid8.gif",
+      youtubeVideoId: "zaongQlYTto")
+];
+var pilate1 = [
+  Exercises(
+    id: "pilate1",
+    name: "Backward Lunge",
+    duration: 60,
+    desc:
+        "Stand with your feet shoulder width apart and your hands on your hips. Step a big step backward with your right leg and lower your body until your left thigh is parallel to the floor. Return and repeat with the other side.",
+    calo: 30,
+    imgGif: "assets/images/explore/pilates_1/pilates1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates2",
+    name: "Walk The Dog",
+    duration: 45,
+    desc:
+        "Begin in a high plank position with your hands under shoulders and feet hip-width apart. Bring your right knee towards your chest as if walking on spot, then return to plank. Repeat with your left knee. Continue alternating legs.",
+    calo: 25,
+    imgGif: "assets/images/explore/pilates_1/pilates2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates3",
+    name: "Side Plank",
+    duration: 30,
+    desc:
+        "Lie on your side with support on your elbow under your shoulder, legs stacked. Lift your hips to form a straight line from heel to head. Hold the position with the core engaged, then switch sides.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_1/pilates3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates4",
+    name: "Side Plank Left",
+    duration: 30,
+    desc:
+        "Lie on your left side and place your left elbow under your shoulder, stacking legs. Push through your elbow and feet to lift your hips off the ground. Hold the position, then gently lower and repeat.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_1/pilates4.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates5",
+    name: "Side Plank Right",
+    duration: 30,
+    desc:
+        "Position yourself on your right side, with your elbow lined under your shoulder and legs stacked. Elevate your hips, creating a straight line from head to heels. Maintain this pose, then lower and perform again.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_1/pilates5.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+];
+var pilate2 = [
+  Exercises(
+    id: "pilate1",
+    name: "Walk The Dog",
+    duration: 60,
+    desc:
+        "Start in a Downward-Facing Dog pose. Alternate bending each knee, as if walking in place, to deepen the stretch in each calf.",
+    calo: 30,
+    imgGif: "assets/images/explore/pilates_2/pilates1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates2",
+    name: "Single Straight Leg Stretch",
+    duration: 45,
+    desc:
+        "Lie on your back with legs extended and arms by your sides. Lift your head and shoulders off the floor and bring one leg towards your chest, holding it with both hands while keeping the other leg straight and lifted off the floor. Alternate legs in a scissor-like motion, pulling each leg closer while extending the other. Focus on keeping your core engaged and making smooth, controlled movements.",
+    calo: 25,
+    imgGif: "assets/images/explore/pilates_2/pilates2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates3",
+    name: "Side Plank Left",
+    duration: 30,
+    desc:
+        "Lie on your side with support on your elbow under your shoulder, legs stacked. Lift your hips to form a straight line from heel to head. Hold the position with the core engaged, then switch sides.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_2/pilates3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates4",
+    name: "Side Plank Right",
+    duration: 30,
+    desc:
+        "Lie on your left side and place your left elbow under your shoulder, stacking legs. Push through your elbow and feet to lift your hips off the ground. Hold the position, then gently lower and repeat.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_2/pilates4.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates5",
+    name: "High Stepping",
+    duration: 30,
+    desc:
+        "Position yourself on your right side, with your elbow lined under your shoulder and legs stacked. Elevate your hips, creating a straight line from head to heels. Maintain this pose, then lower and perform again.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_2/pilates5.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+];
+var pilate3 = [
+  Exercises(
+    id: "pilate1",
+    name: "Jumping Squats",
+    duration: 60,
+    desc:
+        "Start in the squat position, then jump up using your abdominal muscles for strength. This exercise works your abdomen.",
+    calo: 30,
+    imgGif: "assets/images/explore/pilates_3/pilates1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates2",
+    name: "Russian Twist",
+    duration: 45,
+    desc:
+        "Sit on the floor with your knees bent and feet lifted slightly. Lean back to a 45-degree angle and hold your hands together in front of you. Twist your torso to the right, bringing your hands beside your right hip. Return to the center and repeat on the left side. Keep the motion controlled and continuous, engaging your core throughout the exercise.",
+    calo: 25,
+    imgGif: "assets/images/explore/pilates_3/pilates2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates3",
+    name: "Mountain Climber",
+    duration: 30,
+    desc:
+        "Start in a plank position with your arms straight and your body in a straight line from your head to your heels. Drive your right knee towards your chest, then quickly switch and bring your left knee towards your chest in a running motion. Focus on keeping your core tight and hips stable throughout the movement.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_3/pilates3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates4",
+    name: "Crisscross",
+    duration: 30,
+    desc:
+        "Lie flat on your back with hands placed behind your head, elbows wide. Bring your knees towards your chest and lift your shoulder blades off the ground. Extend your left leg out while rotating your torso, bringing your right elbow towards your left knee. Switch sides, bringing your left elbow to your right knee, allowing your legs to switch as well in a pedaling motion. Ensure smooth, controlled movements with a focus on oblique muscles.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_3/pilates4.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "pilates5",
+    name: "Toe Tap",
+    duration: 30,
+    desc:
+        "Lie on your back with knees bent 90 degrees and thighs perpendicular to the floor. Engage your core as you gently tap your toes to the floor, alternating between left and right. Keep the motion smooth and controlled, with your lower back pressed to the ground throughout the exercise.",
+    calo: 20,
+    imgGif: "assets/images/explore/pilates_3/pilates5.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+];
+var strong_1 = [
+  Exercises(
+    id: "strong1",
+    name: "Shoulder Stretch",
+    duration: 30,
+    desc:
+        "Stand or sit comfortably. Bring your right arm across your body. Hold it with your left arm, either above or below the elbow, and gently pull to stretch the right shoulder. Switch sides after the duration.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_1/strong1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong2",
+    name: "Head Tilt",
+    duration: 30,
+    desc:
+        "Start with your hands rested on your hips and your feet shoulder width apart. Tilt your head towards you left shoulder and then to the right. Don't move your shoulders when you tilt your head.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_1/strong2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong3",
+    name: "Seated Side Bend Left",
+    duration: 50,
+    desc:
+        "While sitting, reach your left hand over your head towards the right side while bending your upper body to the right. Return to center and repeat.",
+    calo: 10,
+    imgGif: "assets/images/explore/strong_1/strong3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "strong4",
+      name: "Seated Side Bend Right",
+      duration: 40,
+      desc:
+          "While seated, extend your right hand overhead, reaching to the left side as you bend your upper body to the left. Come back to center and continue the movement.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_1/strong4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong5",
+      name: "Cat Cow Pose",
+      duration: 60,
+      desc:
+          "Get on all fours in tabletop position. Inhale as you drop your belly towards the floor and look up, curling your back down into Cow Pose. On the exhale, draw your belly to your spine and round your back towards the ceiling into Cat Pose.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_1/strong5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var strong_2 = [
+  Exercises(
+    id: "strong1",
+    name: "Thread The Needle Left",
+    duration: 30,
+    desc:
+        "Stand or sit comfortably. Bring your right arm across your body. Hold it with your left arm, either above or below the elbow, and gently pull to stretch the right shoulder. Switch sides after the duration.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_2/strong1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong2",
+    name: "Thread The Needle Right",
+    duration: 30,
+    desc:
+        "Start with your hands rested on your hips and your feet shoulder width apart. Tilt your head towards you left shoulder and then to the right. Don't move your shoulders when you tilt your head.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_2/strong2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "strong3",
+      name: "Walk The Dog",
+      duration: 90,
+      desc:
+          "Start in a Downward-Facing Dog pose. Alternate bending each knee, as if walking in place, to deepen the stretch in each calf.",
+      calo: 70,
+      imgGif: "assets/images/explore/strong_2/strong3.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong4",
+      name: "Cresent Low Lunge Left",
+      duration: 40,
+      desc:
+          "While seated, extend your right hand overhead, reaching to the left side as you bend your upper body to the left. Come back to center and continue the movement.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_2/strong4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong5",
+      name: "Runner's Lunge Left",
+      duration: 60,
+      desc:
+          "Get on all fours in tabletop position. Inhale as you drop your belly towards the floor and look up, curling your back down into Cow Pose. On the exhale, draw your belly to your spine and round your back towards the ceiling into Cat Pose.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_2/strong5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var strong_3 = [
+  Exercises(
+    id: "strong1",
+    name: "Easy Kneeling Hamstring Stretch Left",
+    duration: 30,
+    desc:
+        "Stand or sit comfortably. Bring your right arm across your body. Hold it with your left arm, either above or below the elbow, and gently pull to stretch the right shoulder. Switch sides after the duration.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_3/strong1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong2",
+    name: "Crescent Low Lunge Right",
+    duration: 30,
+    desc:
+        "Start with your hands rested on your hips and your feet shoulder width apart. Tilt your head towards you left shoulder and then to the right. Don't move your shoulders when you tilt your head.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_3/strong2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "strong3",
+      name: "Runner's Lunge Right",
+      duration: 90,
+      desc:
+          "Start in a Downward-Facing Dog pose. Alternate bending each knee, as if walking in place, to deepen the stretch in each calf.",
+      calo: 70,
+      imgGif: "assets/images/explore/strong_3/strong3.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong4",
+      name: "Easy Kneeling Hamstring Stretch Right",
+      duration: 40,
+      desc:
+          "While seated, extend your right hand overhead, reaching to the left side as you bend your upper body to the left. Come back to center and continue the movement.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_3/strong4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong5",
+      name: "Easy Butterfly Pose",
+      duration: 60,
+      desc:
+          "Get on all fours in tabletop position. Inhale as you drop your belly towards the floor and look up, curling your back down into Cow Pose. On the exhale, draw your belly to your spine and round your back towards the ceiling into Cat Pose.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_3/strong5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var strong_4 = [
+  Exercises(
+    id: "strong1",
+    name: "Glute Stretch Left",
+    duration: 30,
+    desc:
+        "Stand or sit comfortably. Bring your right arm across your body. Hold it with your left arm, either above or below the elbow, and gently pull to stretch the right shoulder. Switch sides after the duration.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_4/strong1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong2",
+    name: "Sitting Hamstring Stretch Right",
+    duration: 30,
+    desc:
+        "Start with your hands rested on your hips and your feet shoulder width apart. Tilt your head towards you left shoulder and then to the right. Don't move your shoulders when you tilt your head.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_4/strong2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong3",
+    name: "Double Knees To Chest",
+    duration: 50,
+    desc:
+        "While sitting, reach your left hand over your head towards the right side while bending your upper body to the right. Return to center and repeat.",
+    calo: 10,
+    imgGif: "assets/images/explore/strong_4/strong3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "strong4",
+      name: "Knee To Chest Stretch Left",
+      duration: 40,
+      desc:
+          "While seated, extend your right hand overhead, reaching to the left side as you bend your upper body to the left. Come back to center and continue the movement.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_4/strong4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong5",
+      name: "Supine Hamstring Stretch Left",
+      duration: 60,
+      desc:
+          "Get on all fours in tabletop position. Inhale as you drop your belly towards the floor and look up, curling your back down into Cow Pose. On the exhale, draw your belly to your spine and round your back towards the ceiling into Cat Pose.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_4/strong5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var strong_5 = [
+  Exercises(
+    id: "strong1",
+    name: "Knee To Chest Stretch Right",
+    duration: 30,
+    desc:
+        "Stand or sit comfortably. Bring your right arm across your body. Hold it with your left arm, either above or below the elbow, and gently pull to stretch the right shoulder. Switch sides after the duration.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_5/strong1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong2",
+    name: "Supine Hamstring Stretch Right",
+    duration: 30,
+    desc:
+        "Start with your hands rested on your hips and your feet shoulder width apart. Tilt your head towards you left shoulder and then to the right. Don't move your shoulders when you tilt your head.",
+    calo: 20,
+    imgGif: "assets/images/explore/strong_5/strong2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "strong3",
+    name: "Glute Stretch Right",
+    duration: 50,
+    desc:
+        "While sitting, reach your left hand over your head towards the right side while bending your upper body to the right. Return to center and repeat.",
+    calo: 10,
+    imgGif: "assets/images/explore/strong_5/strong3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "strong4",
+      name: "Spine Lumbar Twist Stretch Left",
+      duration: 40,
+      desc:
+          "While seated, extend your right hand overhead, reaching to the left side as you bend your upper body to the left. Come back to center and continue the movement.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_5/strong4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "strong5",
+      name: "Spine Lumbar Twist Stretch Right",
+      duration: 60,
+      desc:
+          "Get on all fours in tabletop position. Inhale as you drop your belly towards the floor and look up, curling your back down into Cow Pose. On the exhale, draw your belly to your spine and round your back towards the ceiling into Cat Pose.",
+      calo: 30,
+      imgGif: "assets/images/explore/strong_5/strong5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var relax_1 = [
+  Exercises(
+    id: "relax1",
+    name: "Lying Butterfly Stretch",
+    duration: 30,
+    desc:
+        "Lie on your back and bring the soles of your feet together, allowing your knees to fall open to the sides. Place your hands on your inner thighs or knees and gently apply pressure to deepen the stretch in your hips and groin. Relax your shoulders and lower back against the floor, taking deep breaths.",
+    calo: 20,
+    imgGif: "assets/images/explore/relax_1/relax1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "relax2",
+    name: "Double Knees To Chest",
+    duration: 30,
+    desc:
+        "Lie on your back with your legs extended. Draw both knees into your chest, wrapping your arms around them or clasping your hands. Gently pull your knees closer to your chest to stretch the lower back. Maintain a relaxed breathing pattern and hold the pose.",
+    calo: 20,
+    imgGif: "assets/images/explore/relax_1/relax2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "relax3",
+    name: "Sphinx Pose",
+    duration: 50,
+    desc:
+        "Lie face down on the floor with your legs extended behind you. Position your elbows under your shoulders and spread your palms on the floor. Gently press your forearms and hands into the floor, lifting your head and chest while keeping your lower abdomen relaxed. Ensure your shoulders are away from your ears to keep the neck long.",
+    calo: 10,
+    imgGif: "assets/images/explore/relax_1/relax3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "relax4",
+      name: "Puppy Dog Pose",
+      duration: 40,
+      desc:
+          "Start on your hands and knees in a tabletop position. Walk your hands forward, lowering your chest towards the floor while keeping your hips over your knees. Extend your arms fully and allow your forehead to rest on the floor, or on a cushion for comfort. Feel the stretch through your shoulders and spine.",
+      calo: 30,
+      imgGif: "assets/images/explore/relax_1/relax4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "relax5",
+      name: "Open Wing Pose Right",
+      duration: 60,
+      desc:
+          "Lie on your right side, extending your right arm out to the side with your palm facing down. Place your left hand on the floor for support. Bend your left knee and gently press it towards the floor behind you, allowing the left shoulder to open up and the chest to turn towards the ceiling. Switch sides after the duration.",
+      calo: 30,
+      imgGif: "assets/images/explore/relax_1/relax5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];
+var relax_2 = [
+  Exercises(
+    id: "relax1",
+    name: "Standard Sitting Hamstring Stretch Right",
+    duration: 30,
+    desc:
+        "Sit on the floor with your left leg bent and right leg extended. Hinge at the hips to lean forward towards your right leg while keeping your back straight. Reach towards your right foot with your hands, and hold the position to feel a deep stretch in the hamstring of your right leg. Ensure your toes are pointed upwards.",
+    calo: 20,
+    imgGif: "assets/images/explore/relax_2/relax1.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "relax2",
+    name: "Happy Baby Pose",
+    duration: 30,
+    desc:
+        "Lie on your back with your knees bent towards your chest. Grab the outer edges of your feet with your hands and open your knees wider than your torso. Gently pull your knees towards the ground, keeping your back pressed firmly into the floor. This pose gently stretches the hips and lower back.",
+    calo: 20,
+    imgGif: "assets/images/explore/relax_2/relax2.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+    id: "relax3",
+    name: "Glute Stretch Left",
+    duration: 50,
+    desc:
+        "Lie on your back with both knees bent and feet on the floor. Place your right ankle on your left thigh just above the knee. Gently pull your left thigh towards your chest, feeling the stretch in the gluteal muscles of your left side. Keep your back and head on the floor throughout the stretch.",
+    calo: 10,
+    imgGif: "assets/images/explore/relax_2/relax3.gif",
+    youtubeVideoId: "zaongQlYTto",
+  ),
+  Exercises(
+      id: "relax4",
+      name: "Spine Lumbar Twist Stretch Left",
+      duration: 40,
+      desc:
+          "Lie on your back with arms extended to the sides and bring your knees towards your chest. Slowly lower your knees to the right side while keeping your shoulders pressed to the ground, to stretch the muscles of your lower back and the left side of your spine. Turn your head to the left for a deeper stretch.",
+      calo: 30,
+      imgGif: "assets/images/explore/relax_2/relax4.gif",
+      youtubeVideoId: "zaongQlYTto"),
+  Exercises(
+      id: "relax5",
+      name: "Glutte Stretch Right",
+      duration: 60,
+      desc:
+          "Lie on your back and bring both knees up. Cross your left leg over your right so your left ankle rests on your right knee. Grasp the back of your right thigh with both hands and gently pull your right leg toward your chest. Feel the stretch in the right glute. Keep your head and shoulders relaxed on the floor.",
+      calo: 30,
+      imgGif: "assets/images/explore/relax_2/relax5.gif",
+      youtubeVideoId: "zaongQlYTto"),
+];

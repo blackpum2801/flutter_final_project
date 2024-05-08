@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:yoga_app/data/exercise_focus.dart';
 import 'package:yoga_app/data/yogaData.dart';
-
 import 'package:yoga_app/screens/training/training_schedule.dart';
 import 'package:yoga_app/widgets/exercise_custom.dart';
 import 'package:yoga_app/widgets/exercise_detail_custom.dart';
+import 'package:yoga_app/widgets/exercise_focus_custom.dart';
+import 'package:yoga_app/widgets/exercise_meditation_custom.dart';
 
 class Training extends StatefulWidget {
   const Training({Key? key}) : super(key: key);
@@ -495,6 +495,7 @@ class _TrainingState extends State<Training> {
                                   text: "Sunrise Yoga",
                                   text1:
                                       "Wake up with energy,make your body primed for the day.",
+                                  text2: "5 mins ● Beginner",
                                   exercises: sunriseYoga,
                                   onTap: (index) {
                                     Navigator.push(
@@ -555,6 +556,7 @@ class _TrainingState extends State<Training> {
                                   text: "Bedtime stretch for SLEEP",
                                   text1:
                                       "Relax yourself and get a high-quality sleep.",
+                                  text2: "8 mins ● Beginner",
                                   exercises: bedtimeSleep,
                                   onTap: (index) {
                                     Navigator.push(
@@ -608,215 +610,274 @@ class _TrainingState extends State<Training> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: InkWell(
-              onTap: () {},
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Meditation",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 20),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Stack(
-                          children: [
-                            ColorFiltered(
-                              colorFilter: ColorFilter.mode(
-                                Colors.grey.withOpacity(0.3),
-                                BlendMode.srcOver,
-                              ),
-                              child: Image.asset(
-                                "assets/images/meditation.jpg",
-                                width: 600,
-                                height: 180,
-                                fit: BoxFit.fill,
-                              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Meditation",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, bottom: 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const MeditationExerciseCustom(
+                                      text: "Meditation",
+                                      img: "assets/images/meditation_head.jpg",
+                                    )));
+                      },
+                      child: Stack(
+                        children: [
+                          ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                              Colors.grey.withOpacity(0.3),
+                              BlendMode.srcOver,
                             ),
-                            const Positioned(
-                              top: 50,
-                              left: 30,
-                              child: Text(
-                                "Meditation",
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                    letterSpacing: 4),
-                              ),
+                            child: Image.asset(
+                              "assets/images/meditation.jpg",
+                              width: 600,
+                              height: 180,
+                              fit: BoxFit.fill,
                             ),
-                            const Positioned(
-                              top: 85,
-                              left: 30,
-                              child: Text(
-                                "Find your inner peace",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color.fromARGB(255, 234, 222, 222),
-                                    letterSpacing: 4),
-                              ),
-                            )
-                          ],
-                        ),
+                          ),
+                          const Positioned(
+                            top: 50,
+                            left: 30,
+                            child: Text(
+                              "Meditation",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                  letterSpacing: 4),
+                            ),
+                          ),
+                          const Positioned(
+                            top: 85,
+                            left: 30,
+                            child: Text(
+                              "Find your inner peace",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromARGB(255, 234, 222, 222),
+                                  letterSpacing: 4),
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: InkWell(
-              onTap: () {},
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Body focus",
-                    style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Body focus",
+                  style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, bottom: 20),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ExerciseFocusCustom(
+                                      exercises: chest,
+                                      img: "assets/images/focus_chest.jpg",
+                                      text: "Chest",
+                                      text1: "Chest",
+                                      text2:
+                                          "Workouts in this session engage every single muscle of your body, maximize your workout results and improve your overall fitness.",
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/focus_chest.jpg",
+                                    width: 180,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const Positioned(
+                                    top: 18,
+                                    left: 15,
+                                    child: Text(
+                                      "Chest",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 205, 211, 228),
+                                          letterSpacing: 2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ExerciseFocusCustom(
+                                      exercises: belly,
+                                      img: "assets/images/focus_belly.jpg",
+                                      text: "Belly",
+                                      text1: "Belly",
+                                      text2:
+                                          "For those who desire visible nice looking abs. Suits both beginners and workout warriors.",
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/focus_belly.jpg",
+                                    width: 180,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const Positioned(
+                                    top: 18,
+                                    left: 15,
+                                    child: Text(
+                                      "Belly",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 237, 240, 248),
+                                          letterSpacing: 2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ExerciseFocusCustom(
+                                      exercises: arm,
+                                      img: "assets/images/focus_arm.jpg",
+                                      text: "Arm",
+                                      text1: "Arm",
+                                      text2:
+                                          "Quick arm fat burn! Slim and sculpt your arms with just your body weight!",
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/focus_arm.jpg",
+                                    width: 180,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const Positioned(
+                                    top: 18,
+                                    left: 15,
+                                    child: Text(
+                                      "Arm",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 237, 240, 248),
+                                          letterSpacing: 2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ExerciseFocusCustom(
+                                      exercises: leg,
+                                      img: "assets/images/focus_leg.jpg",
+                                      text: "Leg",
+                                      text1: "Leg",
+                                      text2:
+                                          "Burn fat more effectively, boost your metabolism, and create afterburn effect.",
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/focus_leg.jpg",
+                                    width: 180,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const Positioned(
+                                    top: 18,
+                                    left: 15,
+                                    child: Text(
+                                      "Leg",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 237, 240, 248),
+                                          letterSpacing: 2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 20),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Stack(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/focus_chest.jpg",
-                                      width: 180,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const Positioned(
-                                      top: 18,
-                                      left: 15,
-                                      child: Text(
-                                        "Chest",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromARGB(
-                                                255, 205, 211, 228),
-                                            letterSpacing: 2),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Stack(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/focus_belly.jpg",
-                                      width: 180,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const Positioned(
-                                      top: 18,
-                                      left: 15,
-                                      child: Text(
-                                        "Belly",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromARGB(
-                                                255, 237, 240, 248),
-                                            letterSpacing: 2),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Stack(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/focus_arm.jpg",
-                                      width: 180,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const Positioned(
-                                      top: 18,
-                                      left: 15,
-                                      child: Text(
-                                        "Arm",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromARGB(
-                                                255, 237, 240, 248),
-                                            letterSpacing: 2),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Stack(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/focus_leg.jpg",
-                                      width: 180,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const Positioned(
-                                      top: 18,
-                                      left: 15,
-                                      child: Text(
-                                        "Belly",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromARGB(
-                                                255, 237, 240, 248),
-                                            letterSpacing: 2),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           )
         ],

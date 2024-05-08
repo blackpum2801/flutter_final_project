@@ -63,7 +63,7 @@ class _TrainingStartState extends State<TrainingStart>
   }
 
   void _startCountUp() {
-    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       if (mounted) {
         setState(() {
           timeCount++;
@@ -114,7 +114,7 @@ class _TrainingStartState extends State<TrainingStart>
 
   void _startTimer() {
     _timer?.cancel();
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_currentDuration > 0) {
           _currentDuration--;

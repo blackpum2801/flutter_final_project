@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yoga_app/models/exerciseBegginer.dart';
-
 import 'package:yoga_app/widgets/exercise_detail_custom.dart';
 import 'package:yoga_app/widgets/exercise_start_custom.dart';
 

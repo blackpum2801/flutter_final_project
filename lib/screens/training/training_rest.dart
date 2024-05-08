@@ -1,11 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yoga_app/data/yogaData.dart';
-import 'package:yoga_app/models/exerciseBegginer.dart';
 import 'package:yoga_app/screens/training/training_exercise_detail.dart';
 import 'package:yoga_app/screens/training/training_start.dart';
 

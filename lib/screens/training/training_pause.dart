@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:yoga_app/data/yogaData.dart';
 import 'package:yoga_app/screens/training/training_exercise_detail.dart';
@@ -88,7 +86,7 @@ class TrainingPause extends StatelessWidget {
                     )
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Column(
                   children: [
                     ClipRRect(

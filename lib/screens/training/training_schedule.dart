@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:yoga_app/models/day.dart';
-import 'package:yoga_app/models/exerciseBegginer.dart';
 import 'package:yoga_app/screens/training/training_exercise.dart';
-import 'package:yoga_app/screens/training/training_start.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class TrainingSchedule extends StatefulWidget {
   final Day day;
@@ -123,7 +119,6 @@ class _TrainingScheduleState extends State<TrainingSchedule> {
                 int weekNumber = (index ~/ 7) + 1;
                 int dayNumber = (index % 7) + 1;
                 int displayDayNumber = index + 1;
-                print(displayDayNumber);
                 return Column(
                   children: [
                     if (dayNumber == 1)

@@ -6,6 +6,7 @@ import 'package:yoga_app/widgets/exercise_start_custom.dart';
 class TrainingExerciseCustom extends StatefulWidget {
   final String text;
   final String text1;
+  final String text2;
 
   final List<Exercises> exercises;
   final Function(int) onTap;
@@ -14,6 +15,7 @@ class TrainingExerciseCustom extends StatefulWidget {
       {super.key,
       required this.text,
       required this.text1,
+      required this.text2,
       required this.exercises,
       required this.onTap,
       required this.img});
@@ -91,9 +93,9 @@ class _TrainingExerciseCustomState extends State<TrainingExerciseCustom> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "5 mins ● Beginner",
-                              style: TextStyle(
+                            Text(
+                              widget.text2,
+                              style: const TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.black,

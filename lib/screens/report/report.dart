@@ -17,6 +17,7 @@ class Report extends StatefulWidget {
 }
 
 class _ReportState extends State<Report> {
+  double? weight;
   final DateFormat dayOfWeekFormatter = DateFormat('EEE');
   // Lấy số ngày
   final DateFormat dayOfMonthFormatter = DateFormat('d');

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yoga_app/router/app_router.dart';
 import 'package:yoga_app/screens/explore/explore.dart';
 import 'package:yoga_app/screens/me/me.dart';
+import 'package:yoga_app/screens/splash/splash1.dart';
 import 'package:yoga_app/screens/training/training.dart';
 import 'package:yoga_app/screens/report/report.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bottom Navigation Bar',
-      home: MyHomePage(),
+      home: Splash1(),
       theme: ThemeData(
         primaryColor: Colors.blue,
         colorScheme: const ColorScheme.light(
@@ -48,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 3:
         return const Me();
       default:
-        return const Training();
+        return Training();
     }
   }
 
